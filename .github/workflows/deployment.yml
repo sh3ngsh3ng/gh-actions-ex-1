@@ -1,6 +1,6 @@
 name: Lint, Test & Deploy
 on: push
-jobs:
+jobs: # alternatively, all can be run on a single job
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -40,5 +40,7 @@ jobs:
           node-version: 14
       - name: Install Dependencies for project
         run: npm ci
+      - name: Build Project
+        run: npm run build
       - name: Deploy to Host
         run: echo "Deploying..."
